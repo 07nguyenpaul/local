@@ -3,17 +3,20 @@
 // App Secret
 // 9iO7OBt5Xf4cNonO0SE4mqquthn2OfrpGGUaK0grSt4QWFRgwdDVEKlUELwwiabW
 
-export const receiveFood = (forecastData) => ({
+const api_key='DtY3I8853pWZROsmTnsuRA';
+
+export const receiveFood = (foodData) => ({
   // action object
 });
 
-export const receiveHike = (forecastData) => ({
-  // action object
-});
-
-export const fetchFood = options => dispatch => {
+export const fetchFood = () => dispatch => {
   // return fetch API call
 };
+
+export const receiveHike = (hikeData) => ({
+  // action object
+});
+
 
 export const fetchHike= options => dispatch => {
   // return fetch API call
