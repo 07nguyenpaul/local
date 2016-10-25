@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { BrowserRouter, Match, Miss } from 'react-router';
 // import Routes from './routes';
 // import thunk from 'redux-thunk';
 import reducer from './reducers';
@@ -24,13 +24,13 @@ const store = createStore(
 
 render(
   <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path='/' component={App}>
+    <BrowserRouter>
+      <Match exactly pattern="/" component={App}>
         <IndexRoute component={MainDashBoard}/>
-        <Route path='/newrecommendation' component={AddingRecommendation}></Route>
-        <Route path='/detailedpin' component={DetailedPin}></Route>
-      </Route>
-    </Router>
+        <Match pattern='/newrecommendation' component={AddingRecommendation} />
+        <Match pattern='/detailedpin' component={DetailedPin} />
+      </Match>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 )
