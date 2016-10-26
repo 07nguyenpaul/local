@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
-// import MainDashboard from './MainDashBoard';
-// import DetailedPin from './DetailedPin';
-
+import MainDashBoard from './MainDashBoard';
 
 function mapStateToProps(state) {
   // return an object of redux store data
@@ -22,6 +20,7 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <MainDashBoard />
         <div>{this.props.children}</div>
       </div>
     )
