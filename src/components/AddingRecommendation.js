@@ -1,28 +1,26 @@
 import React, { Component } from 'react';
+import Header from './Header';
 
 class AddingRecommendation extends Component {
   constructor() {
     super();
     this.state = {
       name: '',
+      location: '',
       description: ''
     };
   }
 
-  handleNameInput(e) {
-    const nameInput = e.target.value;
-    this.setState({ name: nameInput});
-  }
-
-  handleDescriptionInput(e) {
-    const descriptionInput = e.target.value;
-    this.setState({ description: descriptionInput});
+  updateProperty(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   handleSave(e) {
     e.preventDefault();
     this.setState({
       name: '',
+      location: '',
       description: ''
     });
   }
@@ -30,8 +28,12 @@ class AddingRecommendation extends Component {
   render() {
     return(
       <section className="newRecommendationContainer">
+        <Header />
         <h3>Add New Recommendation</h3>
-        <form className="newRecommendationForm" onSubmit={this.handleSave.bind(this)}>
+        <form
+          className="newRecommendationForm"
+          onSubmit={this.handleSave.bind(this)}
+        >
           <label>
             Name
             <input
@@ -39,7 +41,17 @@ class AddingRecommendation extends Component {
               type="text"
               placeholder="Name"
               value={this.state.name}
-              onChange={this.handleNameInput.bind(this)}
+              onChange={event => this.updateProperty(event)}
+            />
+          </label>
+          <label>
+            Location
+            <input
+              className="locationInput"
+              type="text"
+              placeholder="Location"
+              value={this.state.location}
+              onChange={event => this.updateProperty(event)}
             />
           </label>
           <label>
@@ -48,10 +60,10 @@ class AddingRecommendation extends Component {
               className="descriptionInput"
               placeholder="Description"
               value={this.state.description}
-              onChange={this.handleDescriptionInput.bind(this)}
+              onChange={event => this.updateProperty(event)}
             />
           </label>
-          <input type="submit" value="Save" />
+          <input type="submit" value="Save" className="saveButton" />
         </form>
       </section>
     );

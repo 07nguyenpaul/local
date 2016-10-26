@@ -1,0 +1,33 @@
+@import '_variables.scss';
+
+header {
+  background-color: $primary-header-background-color;
+  display: flex;
+}
+
+.appName {
+  color: black;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.navBar {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 29px;
+}
+
+.new, .home, .logIn {
+  font-size: 1.2em;
+  text-decoration: none;
+  margin: 0 10px 0 10px;
+  color: black;
+}
+
+.title {
+  display: flex;
+  text-decoration: none;
+  margin-left: 10px;
+}

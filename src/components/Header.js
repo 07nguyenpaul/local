@@ -5,13 +5,12 @@ import { Link } from 'react-router';
 const Header = (state) => {
   return (
     <header>
-      <p><Link to='/newrecommendation' className="new">New</Link></p>
-      <h1><Link to="/" className="title">Local</Link></h1>
-        <ul className="navBar">
-          <li>Nav Bar</li>
-          <li><Link to="/">Home</Link></li>
-          <li>log in</li>
-        </ul>
+      <h1><Link to="/" className="appName">Local</Link></h1>
+        <section className="navBar">
+          <Link to='/newrecommendation' className="new">New</Link>
+          <Link to="/" className="home">Home</Link>
+          <span className="logIn">log in</span>
+        </section>
     </header>
   );
 };

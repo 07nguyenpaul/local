@@ -1,9 +1,11 @@
 import React from 'react';
 // import {Link} from 'react-router';
+import Header from './Header';
 
 const DetailedPin = (state) => {
   return (
     <section className="detailSelectedPin">
+      <Header />
       <section className="singlepinnedRestaurant">
         <h3>Restaurant Name</h3>
         <p>address</p>

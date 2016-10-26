@@ -1,22 +1,21 @@
 @import '_variables.scss';
+@import '_header.scss';
 
 body {
   background-color: $primary-background-color;
 }
 
-header {
-  background-color: #c2e3e8;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
+.searchBar {
+  width: 20%;
+  margin-top: 10px;
 }
 
-.new {
-  text-decoration: none;
+.newRecommendationForm {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
-.title {
-  display: flex;
-  text-decoration: none;
-  flex-grow: 3;
+.saveButton {
+  width: 50px;
 }
