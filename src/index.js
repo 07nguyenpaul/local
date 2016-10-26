@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, combineReducers } from 'redux';
+import { createStore, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Match } from 'react-router';
 // import Routes from './routes';
 // import thunk from 'redux-thunk';
-import reducer from './reducers';
+import recommendationReducer from './reducers/index';
 import App from './components/App';
 // import MainDashBoard from './components/MainDashBoard';
 import DetailedPin from './components/DetailedPin';
@@ -14,12 +14,14 @@ import AddingRecommendation from './components/AddingRecommendation';
 // const middleware = [thunk];
 require('!style!css!sass!./styles/main.scss');
 
+const enhancers = compose(
+  window.devToolsExtension ? window.devToolsExtension() : f => f,
+);
+
 const store = createStore(
-  combineReducers({
-    weatherApp: reducer,
-  }),
-  {},// initial state object
-  // applyMiddleware(...middleware)
+  recommendationReducer,
+  {},
+  enhancers
 );
 
 const Root = () => {

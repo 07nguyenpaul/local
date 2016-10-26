@@ -5,6 +5,13 @@
 
 const api_key='DtY3I8853pWZROsmTnsuRA';
 
+export const add = (content) => {
+  return {
+    type: 'ADD',
+    content,
+  };
+};
+
 export const receiveFood = (foodData) => ({
   // action object
 });
