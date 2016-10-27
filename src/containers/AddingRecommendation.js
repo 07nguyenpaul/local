@@ -4,7 +4,7 @@ import AddingRecommendation from '../components/AddingRecommendation';
 
 const mapStateToProps=(state) =>{
   return state;
-}
+};
 
 const mapDispatchToProps=(dispatch) => {
   return {

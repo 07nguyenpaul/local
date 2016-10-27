@@ -5,13 +5,15 @@
 //   }
 // }
 
-const recommendationReducer = (state=[], action) => {
+const recommendationReducer = (state={}, action) => {
   switch (action.type) {
     case 'ADD':
-      return [...state, {id: Date.now(),
-                         name: action.content.name,
-                         location: action.content.location,
-                         description: action.content.description}];
+      return [...state, Object.assign({ id: Date.now(),
+                                        name: action.content.name,
+                                        location: action.content.location,
+                                        description: action.content.description
+                                     })
+      ];
     default:
     return state;
   }
