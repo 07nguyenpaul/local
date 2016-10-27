@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, compose, combineReducers } from 'redux';
+import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Match } from 'react-router';
 // import Routes from './routes';
 // import thunk from 'redux-thunk';
-import recommendationReducer from './reducers/index';
+import reducers from './reducers/index';
 import App from './components/App';
 // import MainDashBoard from './components/MainDashBoard';
 import DetailedPin from './components/DetailedPin';
@@ -19,7 +19,7 @@ const enhancers = compose(
 );
 
 const store = createStore(
-  recommendationReducer,
+  reducers,
   {},
   enhancers
 );

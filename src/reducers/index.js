@@ -5,17 +5,14 @@
 //   }
 // }
 
-const recommendationReducer = (state=[], action) => {
-  switch (action.type) {
-    case 'ADD':
-      return [...state, {id: Date.now(),
-                         name: action.content.name,
-                         location: action.content.location,
-                         description: action.content.description}];
-    default:
-    return state;
-  }
-};
 
-export default recommendationReducer;
 // export default exampleReducer;
+
+import { combineReducers } from 'redux';
+import recommendation from './recommendation';
+
+const reducers = combineReducers({
+  recommendation
+});
+
+export default reducers;

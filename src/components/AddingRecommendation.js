@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 import Header from './Header';
 
 class AddingRecommendation extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     name: '',
-  //     location: '',
-  //     // rating: '',
-  //     // difficulty: '',
-  //     description: ''
-  //   };
-  // }
   sendcontent() {
     let content= {
       name: this.storeName.value,
@@ -21,20 +11,6 @@ class AddingRecommendation extends Component {
     // console.log(content);
     this.props.onSubmit(content);
   }
-  //
-  // updateProperty(event) {
-  //   const { name, value } = event.target;
-  //   this.setState({ [name]: value });
-  // }
-  //
-  // handleSave(e) {
-  //   e.preventDefault();
-  //   this.setState({
-  //     name: '',
-  //     location: '',
-  //     description: ''
-  //   });
-  // }
 
   render() {
     return(

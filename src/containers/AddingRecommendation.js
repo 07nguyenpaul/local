@@ -2,7 +2,11 @@ import { connect } from 'react-redux';
 import { add } from '../actions/actionCreators';
 import AddingRecommendation from '../components/AddingRecommendation';
 
-const mapDispatchToProps=(dispatch) => {
+const mapStateToProps= (state) =>{
+  return state;
+};
+
+const mapDispatchToProps= (dispatch) => {
   return {
     onSubmit: (content) => {
       dispatch(add(content));
@@ -10,4 +14,4 @@ const mapDispatchToProps=(dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(AddingRecommendation);
+export default connect(mapStateToProps, mapDispatchToProps)(AddingRecommendation);
