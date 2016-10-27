@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { add } from '../actionCreators';
+import { add } from '../actions/actionCreators';
 import AddingRecommendation from '../components/AddingRecommendation';
 
 const mapDispatchToProps=(dispatch) => {
@@ -10,6 +10,4 @@ const mapDispatchToProps=(dispatch) => {
   };
 };
 
-let Add = connect(null, mapDispatchToProps)(AddingRecommendation);
-
-export default Add;
+export default connect(null, mapDispatchToProps)(AddingRecommendation);

@@ -9,7 +9,7 @@ import recommendationReducer from './reducers/index';
 import App from './components/App';
 // import MainDashBoard from './components/MainDashBoard';
 import DetailedPin from './components/DetailedPin';
-import AddingRecommendation from './components/AddingRecommendation';
+import AddingRecommendation from './containers/AddingRecommendation';
 
 // const middleware = [thunk];
 require('!style!css!sass!./styles/main.scss');
