@@ -12,7 +12,9 @@ import DetailedPin from './components/DetailedPin';
 import AddingRecommendation from './containers/AddingRecommendation';
 
 // const middleware = [thunk];
-require('!style!css!sass!./styles/main.scss');
+// require('!style!css!sass!./styles/main.scss');
+// import './styles/main.scss';
+require('./styles/main.scss');
 
 const enhancers = compose(
   window.devToolsExtension ? window.devToolsExtension() : f => f,
