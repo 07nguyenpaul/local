@@ -1,10 +1,6 @@
-import React from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
 
-import * as actions from '../actions/auth';
-
-export class SignIn extends React.Component {
+class SignIn extends Component {
   render() {
     const { status, username, logIn, logOut } = this.props;
 
@@ -19,7 +15,7 @@ export class SignIn extends React.Component {
       return (
         <div id="auth-panel">
           <p>You are not logged in.</p>
-          <button 
+          <button
             disabled={(status === 'AWAITING_AUTH_RESPONSE')}
             onClick={e => logIn()}
           >Log In</button>
@@ -29,10 +25,4 @@ export class SignIn extends React.Component {
   }
 };
 
-const mapStateToProps = (state) => state.auth;
-
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(actions, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default SignIn;

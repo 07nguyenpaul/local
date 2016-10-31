@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
 import MainDashBoard from '../containers/MainDashBoard';
-import SignIn from './SignIn';
+import SignIn from '../containers/SignIn';
 
 function mapStateToProps(state) {
   return state;
