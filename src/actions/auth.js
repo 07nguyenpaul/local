@@ -31,7 +31,7 @@ export const startListeningToAuth = () => {
       }
     });
   };
-}
+};
 
 export const logIn = () => {
   return (dispatch) => {
@@ -51,10 +51,10 @@ export const logIn = () => {
       console.log('Error logging in: ', error);
     });
   };
-}
+};
 
 export const logOut = () => {
-  return (dispatch,) => {
+  return (dispatch) => {
     dispatch({
       type: 'LOGOUT'
     });
@@ -66,5 +66,5 @@ export const logOut = () => {
     .catch(error => {
       console.log('SIGN OUT ERROR: ', error);
     });
-  }
-}
+  };
+};
