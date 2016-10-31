@@ -6,7 +6,7 @@ const MainDashBoard = (state) => {
   return (
     <section className="mainDashboardWrapper">
       <input className="searchBar" type="text" placeholder="search" />
-      <section>
+      <section className="cardWrapper">
         { state.recommendation.length > 0 ?
           state.recommendation.map( singleRecommendation =>
             <MainDashBoardCard

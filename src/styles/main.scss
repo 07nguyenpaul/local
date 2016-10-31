@@ -19,3 +19,26 @@ body {
 .saveButton {
   width: 50px;
 }
+
+.recCard {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  margin: 15px;
+  text-align: center;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.description, .name {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  margin: 10px;
+}
