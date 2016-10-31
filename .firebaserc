@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "local-cb336",
+    "staging": "local-cb336"
+  }
+}

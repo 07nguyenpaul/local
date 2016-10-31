@@ -6,13 +6,13 @@ const MainDashBoard = (state) => {
   return (
     <section className="mainDashboardWrapper">
       <input className="searchBar" type="text" placeholder="search" />
-      <section>
+      <section className="cardWrapper">
         { state.recommendation.length > 0 ?
           state.recommendation.map( singleRecommendation =>
             <MainDashBoardCard
               key={singleRecommendation.id}
               recommendationName={singleRecommendation.name}
-              recommendationLocation={singleRecommendation.location}
+              // recommendationLocation={singleRecommendation.location}
               recommendationDescription={singleRecommendation.description}
             />
           ) : <h2><Link to='/newrecommendation'>➕</Link></h2>

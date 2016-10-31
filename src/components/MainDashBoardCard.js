@@ -3,10 +3,10 @@ import React from 'react';
 
 const MainDashBoardCard = ({recommendationName, recommendationLocation, recommendationDescription}) => {
   return (
-    <div>
-      <h2>{recommendationName}</h2>
-      <h3>{recommendationLocation}</h3>
-      <p>{recommendationDescription}</p>
+    <div className="recCard">
+      <h2 className="name">{recommendationName}</h2>
+      {/* <h3>{recommendationLocation}</h3> */}
+      <p className="description">{recommendationDescription}</p>
       {/* <Link to="/detailedpin" className="pinnedRestuarant">
         <h3>Restaurant Name</h3>
         <p>short description</p>

@@ -10,6 +10,13 @@ export const add = (content) => {
   };
 };
 
+export const remove = (content) => {
+  return {
+    type: 'REMOVE',
+    content,
+  };
+};
+
 export const receiveFood = (foodData) => ({
   // action object
 });
