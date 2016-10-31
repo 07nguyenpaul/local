@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { createStore, compose } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Match } from 'react-router';
 // import Routes from './routes';
-// import thunk from 'redux-thunk';
+import thunk from 'redux-thunk';
 import reducers from './reducers/index';
 import App from './components/App';
 // import MainDashBoard from './components/MainDashBoard';
@@ -17,6 +17,7 @@ require('!style!css!sass!./styles/main.scss');
 // require('./styles/main.scss');
 
 const enhancers = compose(
+  applyMiddleware(thunk),
   window.devToolsExtension ? window.devToolsExtension() : f => f,
 );
 

@@ -15,6 +15,7 @@ const provider = new firebase.auth.GoogleAuthProvider();
 export const startListeningToAuth = () => {
   return (dispatch, getState) => {
     firebase.auth().onAuthStateChanged(user => {
+      debugger;
       if (user) {
         dispatch({
           type: 'LOGIN',
