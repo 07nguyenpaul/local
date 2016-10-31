@@ -12,7 +12,7 @@ const MainDashBoard = (state) => {
             <MainDashBoardCard
               key={singleRecommendation.id}
               recommendationName={singleRecommendation.name}
-              recommendationLocation={singleRecommendation.location}
+              // recommendationLocation={singleRecommendation.location}
               recommendationDescription={singleRecommendation.description}
             />
           ) : <h2><Link to='/newrecommendation'>➕</Link></h2>

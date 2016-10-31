@@ -9,18 +9,18 @@ const firebaseApp = {
 };
 
 firebase.initializeApp(firebaseApp);
-
+const authorization = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
 export const startListeningToAuth = () => {
   return (dispatch, getState) => {
-    firebase.auth().onAuthStateChanged(user => {
-      debugger;
+    authorization.onAuthStateChanged(user => {
       if (user) {
+        console.log(user);
         dispatch({
           type: 'LOGIN',
           uid: user.uid,
-          username: user.displayName
+          username: user.displayName || user.email
         });
       } else {
         if (getState().auth.status !== 'ANONYMOUS') {
@@ -39,12 +39,14 @@ export const logIn = () => {
       type: 'ATTEMPTING_LOGIN'
     });
 
-    firebase.auth().signInWithPopup(provider)
+    authorization.signInWithPopup(provider)
     .then(result => {
+      let userData = result.user;
+      console.log(result.user);
       dispatch({
         type: 'LOGIN',
-        uid: result.user.uid,
-        username: result.user.displayName
+        uid: userData.uid,
+        username: userData.displayName || userData.email
       });
     })
     .catch(error => {
@@ -59,7 +61,7 @@ export const logOut = () => {
       type: 'LOGOUT'
     });
 
-    firebase.auth().signOut()
+    authorization.signOut()
     .then(() => {
       console.log('Sign out successful!')
     })

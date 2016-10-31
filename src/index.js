@@ -10,11 +10,10 @@ import App from './components/App';
 // import MainDashBoard from './components/MainDashBoard';
 import DetailedPin from './components/DetailedPin';
 import AddingRecommendation from './containers/AddingRecommendation';
+import * as actions from './actions/auth';
 
 // const middleware = [thunk];
 require('!style!css!sass!./styles/main.scss');
-// import './styles/main.scss';
-// require('./styles/main.scss');
 
 const enhancers = compose(
   applyMiddleware(thunk),
@@ -42,3 +41,5 @@ const Root = () => {
 }
 
 render(<Root />, document.querySelector('#root'))
+
+store.dispatch(actions.startListeningToAuth());
