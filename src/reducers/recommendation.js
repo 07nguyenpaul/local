@@ -14,6 +14,10 @@ const recommendation = (state=initialStateRecommendation, action) => {
           })
         ]
       };
+    case 'RECEIVE_ALL_REC':
+      return {
+        data: action.recommendationList
+      };
     default:
       return state;
   }

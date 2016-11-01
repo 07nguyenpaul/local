@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
 // import MainDashBoardCard from './MainDashBoardCard';
 // import { Link } from 'react-router';
+// import firebase from '../firebase';
 
 class MainDashBoard extends Component {
-  componentWillReceiveProps() {
+  componentDidMount() {
     // const {fetchAllRecommendationsFromFirebase} = this.props;
-    // fetchAllRecommendationsFromFirebase();
+    this.props.fetchAllRecommendationsFromFirebase();
   }
 
   render() {
-    return(
-      <div>
-        test
-      </div>
+    const { recommendation }  = this.props;
+    console.log(this.props);
+
+    return (
+      <section className="mainDashboardWrapper">
+        <input className="searchBar" type="text" placeholder="search" />
+        <section className="cardWrapper">
+        { (recommendation.data).map(rec => {
+           return (
+             <div>
+               <h2 className="name">{rec.name}</h2>
+               <p className="description">{rec.description}</p>
+             </div>
+           )
+           })
+         }
+        </section>
+      </section>
     );
   }
 }
