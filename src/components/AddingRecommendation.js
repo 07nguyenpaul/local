@@ -4,6 +4,7 @@ import Header from './Header';
 class AddingRecommendation extends Component {
   sendcontent() {
     let content= {
+      id: Date.now(),
       name: this.storeName.value,
       location: this.storeLocation.value,
       description: this.storeDescription.value,
