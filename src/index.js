@@ -11,6 +11,7 @@ import App from './components/App';
 import DetailedPin from './components/DetailedPin';
 import AddingRecommendation from './containers/AddingRecommendation';
 import * as actions from './actions/auth';
+import firebase from './firebase';
 
 // const middleware = [thunk];
 require('!style!css!sass!./styles/main.scss');

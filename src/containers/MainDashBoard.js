@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import MainDashBoard from '../components/MainDashBoard';
-import * as actionCreators from '../actions/actionCreators';
+import * as actions from '../actions/recommendationFirebase';
 import { bindActionCreators } from 'redux';
 
 const mapStateToProps = (state) => {
@@ -8,7 +8,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
- return bindActionCreators(actionCreators, dispatch);
+ return bindActionCreators(actions, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainDashBoard);

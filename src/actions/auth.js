@@ -1,19 +1,11 @@
-import firebase from 'firebase';
+import firebase from '../firebase';
 
-const firebaseApp = {
-  apiKey: 'AIzaSyDwnsJcOAy2cP2lyTFdWcanOMTf2DRZpIs',
-  authDomain: 'local-cb336.firebaseapp.com',
-  databaseURL: 'https://local-cb336.firebaseio.com',
-  storageBucket: 'local-cb336.appspot.com',
-  messagingSenderId: '514582937003'
-};
-
-firebase.initializeApp(firebaseApp);
 const authorization = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
 
 export const startListeningToAuth = () => {
   return (dispatch, getState) => {
+    console.log('Listening to auth');
     authorization.onAuthStateChanged(user => {
       if (user) {
         console.log(user);

@@ -3,9 +3,6 @@ const initialState = {
     status: 'ANONYMOUS',
     username: null,
     uid: null
-  },
-  expenses: {
-    data: []
   }
 };
 
