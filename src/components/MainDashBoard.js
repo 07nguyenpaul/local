@@ -11,15 +11,14 @@ class MainDashBoard extends Component {
 
   render() {
     const { recommendation }  = this.props;
-    console.log(this.props);
 
     return (
       <section className="mainDashboardWrapper">
         <input className="searchBar" type="text" placeholder="search" />
         <section className="cardWrapper">
-        { (recommendation.data).map(rec => {
+        { (recommendation.data).map((rec, index) => {
            return (
-             <div className="recCard">
+             <div key={index} className="recCard">
                <h2 className="name">{rec.name}</h2>
                <p className="description">{rec.description}</p>
              </div>
