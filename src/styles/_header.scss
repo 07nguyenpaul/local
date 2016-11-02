@@ -19,11 +19,28 @@ header {
   margin-right: 29px;
 }
 
-.new, .home, .logIn {
+.headerButtons {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.LogInContainer {
+  margin-top: 0;
+}
+
+.new, .home {
   font-size: 1.2em;
   text-decoration: none;
   margin: 0 10px 0 10px;
   color: black;
+}
+
+.logInButton {
+  border-radius: 5px;
+  margin: 0 10px 0 10px;
+  background-color: #e5e4f0;
+  font: #121111;
 }
 
 .title {

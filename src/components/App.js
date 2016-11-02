@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
 import MainDashBoard from '../containers/MainDashBoard';
-import SignIn from '../containers/SignIn';
+
 
 function mapStateToProps(state) {
   return state;
@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <SignIn />
+        
         <MainDashBoard />
         <div>{this.props.children}</div>
       </div>

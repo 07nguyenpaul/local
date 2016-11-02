@@ -5,9 +5,19 @@ body {
   background-color: $primary-background-color;
 }
 
+.mainDashboardWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .searchBar {
   width: 20%;
+  height: 20px;
   margin-top: 10px;
+  display: flex;
+  align-self: center;
+  border-radius: 3px;
+  font-size: 1em;
 }
 
 .newRecommendationForm {
@@ -26,12 +36,13 @@ body {
   border: 2px solid black;
   margin: 15px;
   text-align: center;
+  border-radius: 3px;
 }
 
 .cardWrapper {
   display: flex;
   flex-direction: row;
-  width: 80%;
+  width: 85%;
   margin: auto;
   flex-wrap: wrap;
 }
@@ -40,5 +51,13 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-self: center;
-  margin: 10px;
+  margin: 8px;
+}
+
+.name {
+  font-size: 1.1em;
+}
+
+.description {
+  font-size: .9em;
 }

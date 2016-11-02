@@ -19,7 +19,7 @@ class MainDashBoard extends Component {
         <section className="cardWrapper">
         { (recommendation.data).map(rec => {
            return (
-             <div>
+             <div className="recCard">
                <h2 className="name">{rec.name}</h2>
                <p className="description">{rec.description}</p>
              </div>
