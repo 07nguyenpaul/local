@@ -48,6 +48,7 @@ class AddingRecommendation extends Component {
             />
           </label>
           <input type="submit" value="Save" className="saveButton" />
+          <input type="submit" value="Cancel " className="cancelButton" />
         </form>
       </section>
     );

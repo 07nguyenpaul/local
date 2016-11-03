@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import MainDashBoardCard from './MainDashBoardCard';
+import MainDashBoardCard from './MainDashBoardCard';
 // import { Link } from 'react-router';
 // import firebase from '../firebase';
 
@@ -18,9 +18,8 @@ class MainDashBoard extends Component {
         <section className="cardWrapper">
         { (recommendation.data).map((rec, index) => {
            return (
-             <div key={index} className="recCard">
-               <h2 className="name">{rec.name}</h2>
-               <p className="description">{rec.description}</p>
+             <div key={index}>
+               <MainDashBoardCard name={rec.name} description={rec.description} />
              </div>
            )
            })
