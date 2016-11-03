@@ -5,6 +5,7 @@ class AddingRecommendation extends Component {
   sendcontent() {
     let content= {
       id: Date.now(),
+      uid:'',
       name: this.storeName.value,
       location: this.storeLocation.value,
       description: this.storeDescription.value,

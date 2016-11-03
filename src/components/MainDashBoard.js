@@ -9,6 +9,13 @@ class MainDashBoard extends Component {
     this.props.fetchAllRecommendationsFromFirebase();
   }
 
+  deleteContent(e, uid) {
+    e.preventDefault()
+    // console.log(this);
+    // console.log(uid);
+    this.props.deleteRecommendation(uid);
+  }
+
   render() {
     const { recommendation }  = this.props;
 
@@ -17,10 +24,12 @@ class MainDashBoard extends Component {
         <input className="searchBar" type="text" placeholder="search" />
         <section className="cardWrapper">
         { (recommendation.data).map((rec, index) => {
+          let uid = rec.uid
            return (
              <div key={index} className="recCard">
                <h2 className="name">{rec.name}</h2>
                <p className="description">{rec.description}</p>
+               <button onClick={(e) => this.deleteContent(e, uid)}>click me</button>
              </div>
            )
            })
