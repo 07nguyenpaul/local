@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 
 class AddingRecommendation extends Component {
-  sendcontent() {
+  sendContent() {
     let content= {
       id: Date.now(),
       uid:'',
@@ -14,6 +14,10 @@ class AddingRecommendation extends Component {
     this.props.onSubmit(content);
   }
 
+  sendHome() {
+    this.props.goHome();
+  }
+
   render() {
     return(
       <section className="newRecommendationContainer">
@@ -22,7 +26,7 @@ class AddingRecommendation extends Component {
         <form className="newRecommendationForm"
               onSubmit={(e)=> {
                 e.preventDefault()
-                this.sendcontent();
+                this.sendContent();
               }}
         >
           <label> Name
