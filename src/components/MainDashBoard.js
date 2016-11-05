@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MainDashBoardCard from './MainDashBoardCard';
+// import MainDashBoardCard from './MainDashBoardCard';
 // import { Link } from 'react-router';
 // import firebase from '../firebase';
 
@@ -11,9 +11,8 @@ class MainDashBoard extends Component {
 
   deleteContent(e, uid) {
     e.preventDefault()
-    // console.log(this);
-    // console.log(uid);
     this.props.deleteRecommendation(uid);
+    this.props.fetchAllRecommendationsFromFirebase();
   }
 
   render() {

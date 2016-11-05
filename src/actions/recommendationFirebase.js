@@ -39,7 +39,6 @@ export const submitNewRecommendation = (recData) => {
 export const deleteRecommendation = (uid) =>{
   return (dispatch, getState) => {
     firebaseRecommendations.child(uid).remove().then(() => {
-      // BrowserRouter.push('./App');
       dispatch({
         type:'DELETE_REC',
         deleteRec: uid

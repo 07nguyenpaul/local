@@ -17,7 +17,6 @@ class App extends Component {
     return (
       <div>
         <Header />
-        
         <MainDashBoard />
         <div>{this.props.children}</div>
       </div>

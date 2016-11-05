@@ -6,16 +6,24 @@ class AddingRecommendation extends Component {
     let content= {
       id: Date.now(),
       uid:'',
-      name: this.storeName.value,
-      location: this.storeLocation.value,
-      description: this.storeDescription.value,
+      name: null || this.storeName.value,
+      location: null || this.storeLocation.value,
+      description: null || this.storeDescription.value,
     };
     // console.log(content);
+    // if(content) {
+    //   return
+    // }
     this.props.onSubmit(content);
+    this.routeToHome();
   }
 
-  sendHome() {
-    this.props.goHome();
+  cancelAndSendHome() {
+    this.routeToHome();
+  }
+
+  routeToHome() {
+    this.context.router.transitionTo(`/`);
   }
 
   render() {
@@ -59,5 +67,9 @@ class AddingRecommendation extends Component {
     );
   }
 }
+
+AddingRecommendation.contextTypes = {
+  router: React.PropTypes.object
+};
 
 export default AddingRecommendation;
