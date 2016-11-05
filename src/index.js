@@ -8,7 +8,7 @@ import thunk from 'redux-thunk';
 import reducers from './reducers/index';
 import App from './components/App';
 // import MainDashBoard from './components/MainDashBoard';
-import DetailedPin from './components/DetailedPin';
+import DetailedRecommendation from './components/DetailedRecommendation';
 import AddingRecommendation from './containers/AddingRecommendation';
 import * as actions from './actions/auth';
 import firebase from './firebase';
@@ -34,7 +34,7 @@ const Root = () => {
         <div>
           <Match exactly pattern="/" component={App} />
           <Match pattern='/newrecommendation' component={AddingRecommendation} />
-          <Match pattern='/detailedpin' component={DetailedPin} />
+          <Match pattern='/detailedpin' component={DetailedRecommendation} />
         </div>
       </BrowserRouter>
     </Provider>

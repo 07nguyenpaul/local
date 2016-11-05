@@ -19,11 +19,11 @@ const recommendation = (state=initialStateRecommendation, action) => {
       return {
         data: action.recommendationList
       };
-      case 'DELETE_REC':
-       return {
-         ...state,
-         data: action.deleteRec
-       };
+    case 'DELETE_REC':
+      return {
+        ...state,
+        data: action.deleteRec
+      };
     default:
       return state;
   }

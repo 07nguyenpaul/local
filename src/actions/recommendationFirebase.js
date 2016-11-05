@@ -1,3 +1,5 @@
+import { BrowserRouter } from 'react-router';
+
 import firebase from '../firebase';
 // import { BrowserRouter } from 'react-router';
 
@@ -44,6 +46,28 @@ export const deleteRecommendation = (uid) =>{
       dispatch({
         type:'DELETE_REC',
         deleteRec: uid
+      });
+    }).catch(error => {
+      console.log('error deleting recommendation');
+    });
+  };
+};
+//
+// export const deleteRecommendationSuccess = (recommendation) => {
+//   return {
+//     type: 'DELETE_REC',
+//     recommendation
+//   };
+// };
+
+export const deleteRecommendation = (recommendation) =>{
+  console.log('lets delete something');
+  return (dispatch, getState) => {
+    firebaseRecommendations.remove().then(() => {
+      BrowserRouter.push('./App');
+      dispatch({
+        type:'DELETE_REC',
+        deleteRec: recommendation
       });
     }).catch(error => {
       console.log('error deleting recommendation');

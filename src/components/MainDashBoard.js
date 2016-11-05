@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import MainDashBoardCard from './MainDashBoardCard';
+import MainDashBoardCard from './MainDashBoardCard';
 // import { Link } from 'react-router';
 // import firebase from '../firebase';
 
