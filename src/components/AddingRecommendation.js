@@ -2,15 +2,28 @@ import React, { Component } from 'react';
 import Header from './Header';
 
 class AddingRecommendation extends Component {
-  sendcontent() {
+  sendContent() {
     let content= {
       id: Date.now(),
-      name: this.storeName.value,
-      location: this.storeLocation.value,
-      description: this.storeDescription.value,
+      uid:'',
+      name: null || this.storeName.value,
+      location: null || this.storeLocation.value,
+      description: null || this.storeDescription.value,
     };
     // console.log(content);
+    // if(content) {
+    //   return
+    // }
     this.props.onSubmit(content);
+    this.routeToHome();
+  }
+
+  cancelAndSendHome() {
+    this.routeToHome();
+  }
+
+  routeToHome() {
+    this.context.router.transitionTo(`/`);
   }
 
   render() {
@@ -21,7 +34,7 @@ class AddingRecommendation extends Component {
         <form className="newRecommendationForm"
               onSubmit={(e)=> {
                 e.preventDefault()
-                this.sendcontent();
+                this.sendContent();
               }}
         >
           <label> Name
@@ -48,10 +61,15 @@ class AddingRecommendation extends Component {
             />
           </label>
           <input type="submit" value="Save" className="saveButton" />
+          <input type="submit" value="Cancel " className="cancelButton" />
         </form>
       </section>
     );
   }
 }
+
+AddingRecommendation.contextTypes = {
+  router: React.PropTypes.object
+};
 
 export default AddingRecommendation;

@@ -1,4 +1,5 @@
 import firebase from '../firebase';
+// import { BrowserRouter } from 'react-router';
 
 const firebaseRecommendations = firebase.database().ref('recommendations');
 
@@ -26,11 +27,24 @@ export const fetchAllRecommendationsFromFirebase = () => {
 export const submitNewRecommendation = (recData) => {
   return (dispatch) => {
       let newRecommendationKey = firebaseRecommendations.push().key;
-
+      recData.uid=newRecommendationKey;
       firebaseRecommendations.child(newRecommendationKey).set(recData).then(() => {
           dispatch({type: 'RECEIVE_NEW_REC', recData});
       }).catch(error => {
-          console.log('error saving recommendation to firebase', error);
+          console.log(error);
       });
+  };
+};
+
+export const deleteRecommendation = (uid) =>{
+  return (dispatch, getState) => {
+    firebaseRecommendations.child(uid).remove().then(() => {
+      dispatch({
+        type:'DELETE_REC',
+        deleteRec: uid
+      });
+    }).catch(error => {
+      console.log('error deleting recommendation');
+    });
   };
 };

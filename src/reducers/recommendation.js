@@ -8,6 +8,7 @@ const recommendation = (state=initialStateRecommendation, action) => {
       return {
         data: [...state, Object.assign({
           id: Date.now(),
+          uid: action.content.uid,
           name: action.content.name,
           location: action.content.location,
           description: action.content.description
@@ -17,6 +18,11 @@ const recommendation = (state=initialStateRecommendation, action) => {
     case 'RECEIVE_ALL_REC':
       return {
         data: action.recommendationList
+      };
+    case 'DELETE_REC':
+      return {
+        ...state,
+        data: action.deleteRec
       };
     default:
       return state;

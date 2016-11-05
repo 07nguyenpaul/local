@@ -9,19 +9,26 @@ class MainDashBoard extends Component {
     this.props.fetchAllRecommendationsFromFirebase();
   }
 
+  deleteContent(e, uid) {
+    e.preventDefault()
+    this.props.deleteRecommendation(uid);
+    this.props.fetchAllRecommendationsFromFirebase();
+  }
+
   render() {
     const { recommendation }  = this.props;
-    console.log(this.props);
 
     return (
       <section className="mainDashboardWrapper">
         <input className="searchBar" type="text" placeholder="search" />
         <section className="cardWrapper">
-        { (recommendation.data).map(rec => {
+        { (recommendation.data).map((rec, index) => {
+          let uid = rec.uid
            return (
-             <div>
+             <div key={index} className="recCard">
                <h2 className="name">{rec.name}</h2>
                <p className="description">{rec.description}</p>
+               <button onClick={(e) => this.deleteContent(e, uid)}>click me</button>
              </div>
            )
            })
