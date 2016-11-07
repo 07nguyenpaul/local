@@ -26,7 +26,7 @@ const recommendation = (state=initialStateRecommendation, action) => {
       };
       case 'SET_SELECTED_RECOMMENDATION':
       return {
-        data: state,
+        ...state,
         selectedRec: action.uid
       };
     default:

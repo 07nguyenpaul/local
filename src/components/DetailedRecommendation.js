@@ -18,7 +18,7 @@ class DetailedRecommendation extends Component {
           <h2>{selectedRec.name}</h2>
           <p>{selectedRec.location}</p>
           <p>{selectedRec.description}</p>
-          <button onClick={(e) => this.deleteContent(e, selectedRec.uid)}>click me</button>
+          <button onClick={(e) => this.deleteContent(e, selectedRec.uid)}>Delete</button>
         </section>
       </div>
     );
