@@ -11,11 +11,12 @@ class AddingRecommendation extends Component {
       description: null || this.storeDescription.value,
     };
     // console.log(content);
-    // if(content) {
-    //   return
-    // }
+    // if(content.name === '' && content.location === '' && content.description === '') {
+    //   return this.routeToHome();
+    // } else {
     this.props.onSubmit(content);
     this.routeToHome();
+    // }
   }
 
   cancelAndSendHome() {

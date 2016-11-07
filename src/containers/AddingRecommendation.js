@@ -9,6 +9,7 @@ const mapStateToProps= (state) =>{
 const mapDispatchToProps= (dispatch) => {
   return {
     onSubmit: (content) => {
+      // dispatch(fetchFood(content.name));
       dispatch(submitNewRecommendation(content));
     }
   };
