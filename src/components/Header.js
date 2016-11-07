@@ -7,10 +7,7 @@ const Header = (state) => {
     <header>
       <h1><Link to="/" className="appName">Local</Link></h1>
         <section className="navBar">
-          {/* <Link to='/newrecommendation' className="new">New</Link>
-          <Link to="/" className="home">Home</Link> */}
           <SignIn />
-          {/* <span className="logIn">log in</span> */}
         </section>
     </header>
   );

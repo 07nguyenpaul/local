@@ -12,8 +12,7 @@ export const fetchAllRecommendationsFromFirebase = () => {
           result.forEach(rec => {
             fetchedRecs.push(rec.val());
           });
-
-          console.log(fetchedRecs);
+          
           dispatch({
             type: 'RECEIVE_ALL_REC',
             recommendationList: fetchedRecs
@@ -46,5 +45,12 @@ export const deleteRecommendation = (uid) =>{
     }).catch(error => {
       console.log('error deleting recommendation');
     });
+  };
+};
+
+export const setSelectedRecommendation = (uid) => {
+  return {
+    type: 'SET_SELECTED_RECOMMENDATION',
+    uid: uid
   };
 };

@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-// import MainDashBoardCard from './MainDashBoardCard';
-// import { Link } from 'react-router';
-// import firebase from '../firebase';
 
 class MainDashBoard extends Component {
   componentDidMount() {
-    // const {fetchAllRecommendationsFromFirebase} = this.props;
     this.props.fetchAllRecommendationsFromFirebase();
   }
 
-  deleteContent(e, uid) {
-    e.preventDefault()
-    this.props.deleteRecommendation(uid);
-    this.props.fetchAllRecommendationsFromFirebase();
+  goToDetails(e, rec) {
+    this.props.setSelectedRecommendation(rec);
+    // console.log(this.props.setSelectedRecommendation(rec));
+    this.context.router.transitionTo(`/detailedpin/${rec.name}`);
   }
 
   render() {
@@ -22,42 +18,28 @@ class MainDashBoard extends Component {
       <section className="mainDashboardWrapper">
         <input className="searchBar" type="text" placeholder="search" />
         <section className="cardWrapper">
-        { (recommendation.data).map((rec, index) => {
+        {(recommendation.data).map((rec) => {
           let uid = rec.uid
-           return (
-             <div key={index} className="recCard">
-               <h2 className="name">{rec.name}</h2>
-               <p className="description">{rec.description}</p>
-               <button onClick={(e) => this.deleteContent(e, uid)}>click me</button>
-             </div>
-           )
-           })
-         }
+          // console.log(recommendation.data[0].uid);
+          // console.log(rec.uid);
+          return (
+            <div key={uid} className="recCard">
+              <section onClick={(e) => { this.goToDetails(e, rec) }}>
+                <h2 className="name">{rec.name}</h2>
+                <p className="description">{rec.description}</p>
+              </section>
+            </div>
+          )
+        })
+        }
         </section>
       </section>
     );
   }
 }
 
+MainDashBoard.contextTypes = {
+  router: React.PropTypes.object
+}
+
 export default MainDashBoard;
-
-
-// const MainDashBoard = (state) => {
-//   return (
-//     <section className="mainDashboardWrapper">
-//     <input className="searchBar" type="text" placeholder="search" />
-//     <section className="cardWrapper">
-//     { state.recommendation.length > 0 ?
-//       state.recommendation.map( singleRecommendation =>
-//         <MainDashBoardCard
-//         key={singleRecommendation.id}
-//         recommendationName={singleRecommendation.name}
-//         // recommendationLocation={singleRecommendation.location}
-//         recommendationDescription={singleRecommendation.description}
-//         />
-//       ) : <h2><Link to='/newrecommendation'>➕</Link></h2>
-//     }
-//     </section>
-//     </section>
-//   );
-// };

@@ -24,6 +24,11 @@ const recommendation = (state=initialStateRecommendation, action) => {
         ...state,
         data: action.deleteRec
       };
+      case 'SET_SELECTED_RECOMMENDATION':
+      return {
+        ...state,
+        selectedRec: action.uid
+      };
     default:
       return state;
   }

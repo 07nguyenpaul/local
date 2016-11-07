@@ -1,27 +1,32 @@
-import React from 'react';
-// import {Link} from 'react-router';
+import React, { Component } from 'react';
 import Header from './Header';
 
-const DetailedPin = (state) => {
-  return (
-    <section className="detailSelectedPin">
-      <Header />
-      <section className="singlepinnedRestaurant">
-        <h3>Restaurant Name</h3>
-        <p>address</p>
-        <p>raking</p>
-        <p>description</p>
-        <p>link</p>
-      </section>
-      <section className="singlepinnedHike">
-        <h3>Trail Name</h3>
-        <p>address</p>
-        <p>difficulty</p>
-        <p>description</p>
-        <p>link</p>
-      </section>
-    </section>
-  );
+class DetailedRecommendation extends Component {
+  deleteContent(e, uid) {
+    e.preventDefault();
+    this.props.deleteRecommendation(uid);
+    this.context.router.transitionTo(`/`);
+  }
+
+  render() {
+    const { selectedRec } = this.props;
+
+    return (
+      <div className="DetailedRecommendation">
+        <Header />
+        <section className="singleDetailedRecommendation">
+          <h2>{selectedRec.name}</h2>
+          <p>{selectedRec.location}</p>
+          <p>{selectedRec.description}</p>
+          <button onClick={(e) => this.deleteContent(e, selectedRec.uid)}>Delete</button>
+        </section>
+      </div>
+    );
+  }
+}
+
+DetailedRecommendation.contextTypes = {
+  router: React.PropTypes.object
 };
 
-export default DetailedPin;
+export default DetailedRecommendation;
