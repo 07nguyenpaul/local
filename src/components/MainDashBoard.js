@@ -5,11 +5,11 @@ class MainDashBoard extends Component {
     this.props.fetchAllRecommendationsFromFirebase();
   }
 
-  deleteContent(e, uid) {
-    e.preventDefault()
-    this.props.deleteRecommendation(uid);
-    this.props.fetchAllRecommendationsFromFirebase();
-  }
+  // deleteContent(e, uid) {
+  //   e.preventDefault();
+  //   this.props.deleteRecommendation(uid);
+  //   this.props.fetchAllRecommendationsFromFirebase();
+  // }
 
   goToDetails(e, rec) {
     this.props.setSelectedRecommendation(rec);
@@ -33,7 +33,7 @@ class MainDashBoard extends Component {
               <section onClick={(e) => { this.goToDetails(e, rec) }}>
                 <h2 className="name">{rec.name}</h2>
                 <p className="description">{rec.description}</p>
-                <button onClick={(e) => this.deleteContent(e, uid)}>click me</button>
+                {/* <button onClick={(e) => this.deleteContent(e, uid)}>click me</button> */}
               </section>
             </div>
           )
