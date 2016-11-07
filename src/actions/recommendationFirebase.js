@@ -48,3 +48,10 @@ export const deleteRecommendation = (uid) =>{
     });
   };
 };
+
+export const setSelectedRecommendation = (uid) => {
+  return {
+    type: 'SET_SELECTED_RECOMMENDATION',
+    uid: uid
+  };
+};

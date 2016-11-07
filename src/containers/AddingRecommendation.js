@@ -3,7 +3,7 @@ import {submitNewRecommendation} from '../actions/recommendationFirebase';
 import AddingRecommendation from '../components/AddingRecommendation';
 
 const mapStateToProps= (state) =>{
-  return state;
+  return state
 };
 
 const mapDispatchToProps= (dispatch) => {
