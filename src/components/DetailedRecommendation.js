@@ -13,11 +13,13 @@ class DetailedRecommendation extends Component {
 
     return (
       <div className="DetailedRecommendation">
-      <Header />
-        <h2>{selectedRec.name}</h2>
-        <p>{selectedRec.location}</p>
-        <p>{selectedRec.description}</p>
-        <button onClick={(e) => this.deleteContent(e, selectedRec.uid)}>click me</button>
+        <Header />
+        <section className="singleDetailedRecommendation">
+          <h2>{selectedRec.name}</h2>
+          <p>{selectedRec.location}</p>
+          <p>{selectedRec.description}</p>
+          <button onClick={(e) => this.deleteContent(e, selectedRec.uid)}>click me</button>
+        </section>
       </div>
     );
   }
