@@ -6,8 +6,7 @@ const recommendation = (state=initialStateRecommendation, action) => {
   switch (action.type) {
     case 'RECEIVE_NEW_REC':
       return {
-        data: [...state, Object.assign({}, action.payload.json, action.payload.recData)
-        ]
+        data: [...state.data, action.payload.recData]
       };
     // case 'RECEIVE_NEW_REC':
     //   return {

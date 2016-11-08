@@ -29,17 +29,31 @@ export const fetchAllRecommendationsFromFirebase = () => {
   };
 };
 
+// export const submitNewRecommendation = (recData, id=API_ID, secret=API_SECRET, lat=DENVER_LAT, long=DENVER_LONG, date=VERSION_DATE) => {
+//   console.log('we are here', recData);
+//   return (dispatch) => {
+//     let newRecommendationKey = firebaseRecommendations.push().key;
+//     recData.uid=newRecommendationKey;
+//     fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${id}&client_secret=${secret}&ll=${lat},${long}&query=${recData.name}&v=${date}`)
+//     .then(response => response.json())
+//     .then((json) => {
+//       dispatch({type: 'RECEIVE_NEW_REC', payload: {json, recData}});
+//     }).catch(error => {
+//         console.log(error);
+//     });
+//   };
+// };
+
 export const submitNewRecommendation = (recData, id=API_ID, secret=API_SECRET, lat=DENVER_LAT, long=DENVER_LONG, date=VERSION_DATE) => {
-  console.log('we are here', recData);
-  debugger
   return (dispatch) => {
     let newRecommendationKey = firebaseRecommendations.push().key;
     recData.uid=newRecommendationKey;
     fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${id}&client_secret=${secret}&ll=${lat},${long}&query=${recData.name}&v=${date}`)
     .then(response => response.json())
+    .then((json) => firebaseRecommendations.child(newRecommendationKey).set(Object.assign({}, json, recData)))
     .then((json) => {
-      dispatch({type: 'RECEIVE_NEW_REC', payload: {json, recData}});
-    }).catch(error => {
+      dispatch({type: 'RECEIVE_NEW_REC', payload: {json, recData}}); })
+    .catch(error => {
         console.log(error);
     });
   };
