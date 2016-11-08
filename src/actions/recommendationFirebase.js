@@ -36,7 +36,7 @@ export const submitNewRecommendation = (recData, id=API_ID, secret=API_SECRET, l
     let newRecommendationKey = firebaseRecommendations.push().key;
     recData.uid=newRecommendationKey;
     fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${id}&client_secret=${secret}&ll=${lat},${long}&query=${recData.name}&v=${date}`)
-    .then(response => {response.json()})
+    .then(response => response.json())
     .then((json) => {
       dispatch({type: 'RECEIVE_NEW_REC', payload: {json, recData}});
     }).catch(error => {
