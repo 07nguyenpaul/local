@@ -1,5 +1,11 @@
 import firebase from '../firebase';
-// import { BrowserRouter } from 'react-router';
+
+const API_ID = 'M3FIBXUYIFX4DR3TSKHKYWXB4JI5XMIE2GO3WLUGXZ4KDRIZ';
+const API_SECRET = 'TV1WF5HQLTNG4FJWDU0O3VHQAZJMXYYTWE0RPK4TJLMSQWOB';
+
+const DENVER_LAT = 39.739236;
+const DENVER_LONG = -104.990251;
+const VERSION_DATE = 20161101;
 
 const firebaseRecommendations = firebase.database().ref('recommendations');
 
@@ -12,7 +18,7 @@ export const fetchAllRecommendationsFromFirebase = () => {
           result.forEach(rec => {
             fetchedRecs.push(rec.val());
           });
-          
+
           dispatch({
             type: 'RECEIVE_ALL_REC',
             recommendationList: fetchedRecs
@@ -23,17 +29,34 @@ export const fetchAllRecommendationsFromFirebase = () => {
   };
 };
 
-export const submitNewRecommendation = (recData) => {
+export const submitNewRecommendation = (recData, id=API_ID, secret=API_SECRET, lat=DENVER_LAT, long=DENVER_LONG, date=VERSION_DATE) => {
+  console.log('we are here', recData);
+  debugger
   return (dispatch) => {
-      let newRecommendationKey = firebaseRecommendations.push().key;
-      recData.uid=newRecommendationKey;
-      firebaseRecommendations.child(newRecommendationKey).set(recData).then(() => {
-          dispatch({type: 'RECEIVE_NEW_REC', recData});
-      }).catch(error => {
-          console.log(error);
-      });
+    let newRecommendationKey = firebaseRecommendations.push().key;
+    recData.uid=newRecommendationKey;
+    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${id}&client_secret=${secret}&ll=${lat},${long}&query=${recData.name}&v=${date}`)
+    .then(response => response.json())
+    .then((json) => {
+      dispatch({type: 'RECEIVE_NEW_REC', payload: {json, recData}});
+    }).catch(error => {
+        console.log(error);
+    });
   };
 };
+
+// original action
+// export const submitNewRecommendation = (recData) => {
+//   return (dispatch) => {
+//       let newRecommendationKey = firebaseRecommendations.push().key;
+//       recData.uid=newRecommendationKey;
+//       firebaseRecommendations.child(newRecommendationKey).set(recData).then(() => {
+//           dispatch({type: 'RECEIVE_NEW_REC', recData});
+//       }).catch(error => {
+//           console.log(error);
+//       });
+//   };
+// };
 
 export const deleteRecommendation = (uid) =>{
   return (dispatch, getState) => {
@@ -54,3 +77,14 @@ export const setSelectedRecommendation = (uid) => {
     uid: uid
   };
 };
+//
+// export const receiveFood = (foodData) => ({
+//   type: 'RECEIVE_VENUE',
+//   foodData
+// });
+//
+// export const fetchFood = (id=API_ID, secret=API_SECRET, lat=DENVER_LAT, long=DENVER_LONG, recData, date=VERSION_DATE) => dispatch => {
+//   return fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${id}&client_secret=${secret}&ll=${lat},${long}&query=${recData.name}&v=${date}`)
+//          .then(response => response.json())
+//          .then(json => dispatch(receiveFood(json)));
+// };

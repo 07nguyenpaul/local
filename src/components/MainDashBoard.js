@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 
 class MainDashBoard extends Component {
+  // constructor() {
+  //   super();
+  //   this.state = {
+  //     venue: ''
+  //   };
+  // }
+
   componentDidMount() {
     this.props.fetchAllRecommendationsFromFirebase();
   }
@@ -11,12 +18,40 @@ class MainDashBoard extends Component {
     this.context.router.transitionTo(`/detailedpin/${rec.name}`);
   }
 
+  // handleInput(e) {
+  //   const venueInput = e.target.value;
+  //   this.setState({ venue: venueInput });
+  // }
+  //
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   this.props.fetchFood(this.state.venue);
+  //   this.setState({
+  //     venue: '',
+  //   });
+  // }
+
   render() {
     const { recommendation }  = this.props;
 
     return (
       <section className="mainDashboardWrapper">
-        <input className="searchBar" type="text" placeholder="search" />
+        {/* <form className="findingVenueForm"
+              onSubmit={this.handleSearch.bind(this)}
+        >
+          <input
+            className="venueInput"
+            placeholder="Search for Restaurant"
+            value={this.state.venue}
+            onChange={this.handleInput.bind(this)}
+          />
+          <input
+            type="submit"
+            value="Find"
+            // disabled={!this.state.venue}
+        />
+        </form> */}
+        {/* <input className="searchBar" type="text" placeholder="search" /> */}
         <section className="cardWrapper">
         {(recommendation.data).map((rec) => {
           let uid = rec.uid
