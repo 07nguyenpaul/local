@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="104px" height="89px" viewBox="0 0 104 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>colorado logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="App-Logo" transform="translate(-202.000000, -79.000000)">
+            <g id="App-Name" transform="translate(49.000000, 0.000000)">
+                <g id="colorado-logo" transform="translate(153.000000, 79.000000)">
+                    <g>
+                        <path d="M103.531836,65.6553643 C94.2175752,79.5577742 76.0086358,89 55.0704895,89 C24.655898,89 5.68434189e-14,69.0766714 5.68434189e-14,44.5 C5.68434189e-14,19.9233286 24.655898,3.55271368e-15 55.0704895,3.55271368e-15 C75.3323341,3.55271368e-15 93.0384311,8.84210938 102.601654,22.0116207 L76.0222597,42.8991207 L103.531836,65.6553643 Z" id="Combined-Shape" fill="#D0011B"></path>
+                        <ellipse id="Oval-2" fill="#F8E81C" cx="55.0704895" cy="44.0018657" rx="28.6987058" ry="23.744403"></ellipse>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

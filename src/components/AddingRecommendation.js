@@ -10,10 +10,6 @@ class AddingRecommendation extends Component {
       location: null || this.storeLocation.value,
       description: null || this.storeDescription.value,
     };
-    // console.log(content);
-    // if(content) {
-    //   return
-    // }
     this.props.onSubmit(content);
     this.routeToHome();
   }

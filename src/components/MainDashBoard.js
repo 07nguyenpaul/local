@@ -7,7 +7,6 @@ class MainDashBoard extends Component {
 
   goToDetails(e, rec) {
     this.props.setSelectedRecommendation(rec);
-    // console.log(this.props.setSelectedRecommendation(rec));
     this.context.router.transitionTo(`/detailedpin/${rec.name}`);
   }
 
@@ -20,12 +19,10 @@ class MainDashBoard extends Component {
         <section className="cardWrapper">
         {(recommendation.data).map((rec) => {
           let uid = rec.uid
-          // console.log(recommendation.data[0].uid);
-          // console.log(rec.uid);
           return (
             <div key={uid} className="recCard">
-              <section onClick={(e) => { this.goToDetails(e, rec) }}>
-                <h2 className="name">{rec.name}</h2>
+              <section key={uid} onClick={(e) => { this.goToDetails(e, rec) }}>
+                <h2 className="name">{rec.name.toUpperCase()}</h2>
                 <p className="description">{rec.description}</p>
               </section>
             </div>
