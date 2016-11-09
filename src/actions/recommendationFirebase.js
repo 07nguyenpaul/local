@@ -2,6 +2,7 @@ import firebase from '../firebase';
 
 const API_ID = 'M3FIBXUYIFX4DR3TSKHKYWXB4JI5XMIE2GO3WLUGXZ4KDRIZ';
 const API_SECRET = 'TV1WF5HQLTNG4FJWDU0O3VHQAZJMXYYTWE0RPK4TJLMSQWOB';
+const API_TOKEN = '3ZSMDDBDC5XTCXXFIYSN5SPRVA4NA1KTJUU5RHN0YJY152PW';
 
 const DENVER_LAT = 39.739236;
 const DENVER_LONG = -104.990251;
@@ -29,76 +30,50 @@ export const fetchAllRecommendationsFromFirebase = () => {
   };
 };
 
-// export const submitNewRecommendation = (recData, id=API_ID, secret=API_SECRET, lat=DENVER_LAT, long=DENVER_LONG, date=VERSION_DATE) => {
-//   console.log('we are here', recData);
-//   return (dispatch) => {
-//     let newRecommendationKey = firebaseRecommendations.push().key;
-//     recData.uid=newRecommendationKey;
-//     fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${id}&client_secret=${secret}&ll=${lat},${long}&query=${recData.name}&v=${date}`)
-//     .then(response => response.json())
-//     .then((json) => {
-//       dispatch({type: 'RECEIVE_NEW_REC', payload: {json, recData}});
-//     }).catch(error => {
-//         console.log(error);
-//     });
-//   };
-// };
-
-export const submitNewRecommendation = (recData, id=API_ID, secret=API_SECRET, lat=DENVER_LAT, long=DENVER_LONG, date=VERSION_DATE) => {
+export const submitNewRecommendation = (recData,
+                                        id=API_ID,
+                                        secret=API_SECRET,
+                                        token=API_TOKEN,
+                                        lat=DENVER_LAT,
+                                        long=DENVER_LONG,
+                                        date=VERSION_DATE) => {
   return (dispatch) => {
     let newRecommendationKey = firebaseRecommendations.push().key;
     recData.uid=newRecommendationKey;
-    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${id}&client_secret=${secret}&ll=${lat},${long}&query=${recData.name}&v=${date}`)
+    fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${id}
+                                                                  &client_secret=${secret}
+                                                                  &ll=${lat},${long}
+                                                                  &query=${recData.name}
+                                                                  &v=${date}`)
     .then(response => response.json())
-    .then((json) => firebaseRecommendations.child(newRecommendationKey).set(Object.assign({}, json, recData)))
     .then((json) => {
-      dispatch({type: 'RECEIVE_NEW_REC', payload: {json, recData}}); })
+      let obj = Object.assign({}, json, recData);
+      firebaseRecommendations.child(newRecommendationKey).set(obj);
+      dispatch({type: 'RECEIVE_NEW_REC', payload: {obj}});
+    })
     .catch(error => {
         console.log(error);
     });
   };
 };
 
-// original action
-// export const submitNewRecommendation = (recData) => {
-//   return (dispatch) => {
-//       let newRecommendationKey = firebaseRecommendations.push().key;
-//       recData.uid=newRecommendationKey;
-//       firebaseRecommendations.child(newRecommendationKey).set(recData).then(() => {
-//           dispatch({type: 'RECEIVE_NEW_REC', recData});
-//       }).catch(error => {
-//           console.log(error);
-//       });
-//   };
-// };
-
 export const deleteRecommendation = (uid) =>{
-  return (dispatch, getState) => {
+  return (dispatch) => {
     firebaseRecommendations.child(uid).remove().then(() => {
       dispatch({
         type:'DELETE_REC',
         deleteRec: uid
       });
     }).catch(error => {
-      console.log('error deleting recommendation');
+      console.log('error deleting recommendation', error);
     });
   };
 };
 
-export const setSelectedRecommendation = (uid) => {
+export const setSelectedRecommendation = (uid, fetchedRecs) => {
   return {
     type: 'SET_SELECTED_RECOMMENDATION',
+    fetchedRecs,
     uid: uid
   };
 };
-//
-// export const receiveFood = (foodData) => ({
-//   type: 'RECEIVE_VENUE',
-//   foodData
-// });
-//
-// export const fetchFood = (id=API_ID, secret=API_SECRET, lat=DENVER_LAT, long=DENVER_LONG, recData, date=VERSION_DATE) => dispatch => {
-//   return fetch(`https://api.foursquare.com/v2/venues/explore?client_id=${id}&client_secret=${secret}&ll=${lat},${long}&query=${recData.name}&v=${date}`)
-//          .then(response => response.json())
-//          .then(json => dispatch(receiveFood(json)));
-// };

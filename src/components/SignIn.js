@@ -23,7 +23,6 @@ class SignIn extends Component {
     } else {
       return (
         <div id="auth-panel">
-          {/* <p>You are not logged in.</p> */}
           <section className="headerButtons LogInContainer">
             <Link to='/newrecommendation' className="new">New</Link>
             <Link to="/" className="home">Home</Link>

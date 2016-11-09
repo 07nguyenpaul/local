@@ -6,19 +6,8 @@ const recommendation = (state=initialStateRecommendation, action) => {
   switch (action.type) {
     case 'RECEIVE_NEW_REC':
       return {
-        data: [...state.data, action.payload.recData]
+        data: [...state.data, action.payload.obj]
       };
-    // case 'RECEIVE_NEW_REC':
-    //   return {
-    //     data: [...state, Object.assign({
-    //       id: Date.now(),
-    //       uid: action.content.uid,
-    //       name: action.content.name,
-    //       location: action.content.location,
-    //       description: action.content.description
-    //       })
-    //     ]
-    //   };
     case 'RECEIVE_ALL_REC':
       return {
         data: action.recommendationList
@@ -28,9 +17,10 @@ const recommendation = (state=initialStateRecommendation, action) => {
         ...state,
         data: action.deleteRec
       };
-      case 'SET_SELECTED_RECOMMENDATION':
+    case 'SET_SELECTED_RECOMMENDATION':
       return {
-        ...state,
+        // ...state,
+        data: state.data,
         selectedRec: action.uid
       };
     default:

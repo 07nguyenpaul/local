@@ -5,7 +5,7 @@ import * as actions from '../actions/recommendationFirebase';
 
 
 const mapStateToProps = (state) => {
-  // console.log(state.recommendation.data);
+  console.log(state.recommendation.data);
   return {
     recList: state,
     selectedRec: state.recommendation.selectedRec

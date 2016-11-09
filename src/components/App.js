@@ -13,6 +13,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 class App extends Component {
+  debugger
   render() {
     return (
       <div>
