@@ -5,12 +5,9 @@
 @import '_detailedRecommendation';
 @import '_new';
 
-/* $primary-title-font: 'Abhaya Libre', serif;
-$primary-body-font: 'Open Sans', sans-serif; */
-
 body {
   background-color: $primary-background-color;
   color: $secondary-font-color;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $primary-body-font;
   .transition { transition: .3s cubic-bezier(.3, 0, 0, 1.3) }
 }

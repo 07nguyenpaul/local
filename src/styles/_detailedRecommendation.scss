@@ -11,7 +11,7 @@
 
 .restaurantName, .restaurantType {
   display: flex;
-  font-family: 'Abhaya Libre', serif;
+  font-family: $primary-title-font;
   justify-content: center;
 }
 
