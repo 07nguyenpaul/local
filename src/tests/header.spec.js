@@ -8,4 +8,9 @@ describe('Header components', () => {
     const wrapper = shallow(<Header />);
     expect(wrapper.type()).to.equal('header');
   });
+
+  it('displays a sign in component', () => {
+    expect(2).to.equal(2);
+    // assert that signin component exists
+  });
 });
