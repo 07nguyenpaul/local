@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Match } from 'react-router';
-// import Routes from './routes';
 import thunk from 'redux-thunk';
 import reducers from './reducers/index';
 import App from './components/App';
@@ -12,7 +11,6 @@ import AddingRecommendation from './containers/AddingRecommendation';
 import * as actions from './actions/auth';
 import firebase from './firebase';
 
-// const middleware = [thunk];
 require('!style!css!sass!./styles/main.scss');
 
 const enhancers = compose(
