@@ -3,7 +3,7 @@
 header {
   background-color: $primary-header-background-color;
   display: flex;
-  font-family: 'Abhaya Libre', serif;
+  font-family: $primary-title-font;
 }
 
 a.home, a.new {
