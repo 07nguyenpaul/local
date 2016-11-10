@@ -13,7 +13,6 @@ const firebaseRecommendations = firebase.database().ref('recommendations');
 export const fetchAllRecommendationsFromFirebase = () => {
   return (dispatch, getState) => {
       let fetchedRecs = [];
-      console.log('Running fetchAllRecs');
 
       firebaseRecommendations.once('value').then(result => {
           result.forEach(rec => {
@@ -25,7 +24,7 @@ export const fetchAllRecommendationsFromFirebase = () => {
             recommendationList: fetchedRecs
           });
       }).catch(error => {
-        console.log('Error fetching all recs');
+        console.log('Error fetching all recs', error);
       });
   };
 };

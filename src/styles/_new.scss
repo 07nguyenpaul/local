@@ -1,0 +1,74 @@
+@import '_variables.scss';
+
+.addWrapper {
+  background-color: $primary-header-background-color;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 10px;
+  width: 90%;
+}
+
+.addRecommendation {
+  border-bottom: 2px solid $secondary-font-color;
+  color: $primary-font-color;
+  display: flex;
+  font-family: 'Abhaya Libre', serif;
+  font-size: 2.4em;
+  justify-content: center;
+  margin: auto;
+  margin-top: 30px;
+  width: 80%;
+}
+
+.newRecommendationForm {
+  line-height: 40px;
+  margin: auto;
+  width: 70%;
+}
+
+.instructions {
+  color: $secondary-font-color;
+  font-size: 1.2em;
+  margin-top: 15px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.label {
+  align-items: center;
+  font-size: 1em;
+  display: flex;
+  margin-left: 15px;
+}
+
+.inputField {
+  font-size: 1em;
+  height: 2.5vh;
+  margin-right: 5vw;
+  width: 40vw;
+}
+
+.nameInput {
+  margin-left: 45px;
+}
+
+.descriptionInput {
+  height: 60px;
+  margin-bottom: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.formButtonWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.saveButton, .cancelButton {
+  margin: 15px;
+}

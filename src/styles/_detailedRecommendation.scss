@@ -1,0 +1,63 @@
+@import '_variables.scss';
+
+.singleDetailedRecommendation {
+  background-color: $primary-header-background-color;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 10px;
+  width: 70%;
+}
+
+.restaurantName, .restaurantType {
+  display: flex;
+  font-family: 'Abhaya Libre', serif;
+  justify-content: center;
+}
+
+.restaurantName {
+  color: $primary-font-color;
+  font-size: 2.5em;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+.restaurantType {
+  font-size: 1.5em;
+}
+
+.firstWrapper {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-bottom: 25px;
+  width: 80%;
+}
+
+.address, .links, .details {
+  align-items: center;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  line-height: 28px;
+}
+
+.restaurantURL, .restaurantMenu {
+  color: $primary-font-color;
+  text-decoration: none;
+}
+
+.tip {
+  display: flex;
+  margin: auto;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.delete {
+  height: 40px;
+  letter-spacing: 2.5px;
+  margin: auto;
+  margin-bottom: 30px;
+}
