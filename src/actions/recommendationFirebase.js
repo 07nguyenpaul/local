@@ -47,8 +47,10 @@ export const submitNewRecommendation = (recData,
     .then(response => response.json())
     .then((json) => {
       let obj = Object.assign({}, json, recData);
-      firebaseRecommendations.child(newRecommendationKey).set(obj);
-      dispatch({type: 'RECEIVE_NEW_REC', payload: {obj}});
+      firebaseRecommendations.child(newRecommendationKey).set(obj)
+      .then(() => {
+        dispatch({type: 'RECEIVE_NEW_REC', payload: {obj}});
+      });
     })
     .catch(error => {
         console.log(error);

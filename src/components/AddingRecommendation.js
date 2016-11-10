@@ -19,6 +19,11 @@ class AddingRecommendation extends Component {
     this.context.router.transitionTo(`/`);
   }
 
+  // componentWillReceiveProps() {
+  //   console.log('Receiving props');
+  // }
+  // THIS IS TO TEST IF THE APP IS FETCHING IN THE BACKGROUND 
+
   render() {
     return(
       <section className="newRecommendationContainer">
