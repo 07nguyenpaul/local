@@ -3,20 +3,28 @@
 header {
   background-color: $primary-header-background-color;
   display: flex;
+  font-family: 'Abhaya Libre', serif;
+}
+
+a.home, a.new {
+  align-items: center;
+  color: $primary-font-color;
+  display: flex;
+  font-size: 1.5em;
 }
 
 .appName {
   color: black;
-  text-decoration: none;
   margin-left: 20px;
+  text-decoration: none;
 }
 
 .navBar {
-  display: flex;
-  width: 100%;
   align-items: center;
+  display: flex;
   justify-content: flex-end;
   margin-right: 29px;
+  width: 100%;
 }
 
 .headerButtons {
@@ -30,21 +38,21 @@ header {
 }
 
 .new, .home {
-  font-size: 1.2em;
-  text-decoration: none;
-  margin: 0 10px 0 10px;
   color: black;
+  font-size: 1.2em;
+  margin: 0 10px 0 10px;
+  text-decoration: none;
 }
 
 .logInButton {
-  border-radius: 5px;
-  margin: 0 10px 0 10px;
   background-color: #e5e4f0;
+  border-radius: 5px;
   font: #121111;
+  margin: 0 10px 0 10px;
 }
 
 .title {
   display: flex;
-  text-decoration: none;
   margin-left: 10px;
+  text-decoration: none;
 }

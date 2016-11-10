@@ -4,7 +4,7 @@ import * as actions from '../actions/recommendationFirebase';
 import { bindActionCreators } from 'redux';
 
 const mapStateToProps = (state) => {
-  return state
+  return state;
 };
 
 const mapDispatchToProps = (dispatch) => {

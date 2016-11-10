@@ -15,16 +15,21 @@ class MainDashBoard extends Component {
 
     return (
       <section className="mainDashboardWrapper">
-        <input className="searchBar" type="text" placeholder="search" />
         <section className="cardWrapper">
         {(recommendation.data).map((rec) => {
-          let uid = rec.uid
+          let uid = rec.uid;
+
           return (
-            <div key={uid} className="recCard">
-              <section key={uid} onClick={(e) => { this.goToDetails(e, rec) }}>
-                <h2 className="name">{rec.name.toUpperCase()}</h2>
-                <p className="description">{rec.description}</p>
-              </section>
+            <div key={uid} className="card transition">
+              <h2 className="name transition">{rec.name}</h2>
+              <p className="description">{rec.description}</p>
+              <div className="cta-container transition">
+                <button
+                  className="cta"
+                  onClick={(e) => { this.goToDetails(e, rec) }} >
+                  More info...
+                  </button>
+              </div>
             </div>
           )
         })

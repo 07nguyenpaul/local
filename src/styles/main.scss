@@ -1,68 +1,16 @@
 @import '_variables';
+@import '_signin';
 @import '_header';
+@import '_allrecommendations';
+@import '_detailedRecommendation';
+@import '_new';
+
+/* $primary-title-font: 'Abhaya Libre', serif;
+$primary-body-font: 'Open Sans', sans-serif; */
 
 body {
   background-color: $primary-background-color;
-}
-
-.mainDashboardWrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.searchBar {
-  width: 20%;
-  height: 20px;
-  margin-top: 10px;
-  display: flex;
-  align-self: center;
-  border-radius: 3px;
-  font-size: 1em;
-}
-
-.newRecommendationForm {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-.saveButton, .cancelButton {
-  width: 50px;
-}
-
-.recCard {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid black;
-  margin: 15px;
-  text-align: center;
-  border-radius: 3px;
-}
-
-.cardWrapper {
-  display: flex;
-  flex-direction: row;
-  width: 85%;
-  margin: auto;
-  flex-wrap: wrap;
-}
-
-.description, .name {
-  display: flex;
-  flex-wrap: wrap;
-  align-self: center;
-  margin: 8px;
-}
-
-.name {
-  font-size: 1.1em;
-}
-
-.description {
-  font-size: .9em;
-}
-
-.detailedRecommendationCard {
-  text-decoration: none;
-  color: black;
+  color: $secondary-font-color;
+  font-family: 'Open Sans', sans-serif;
+  .transition { transition: .3s cubic-bezier(.3, 0, 0, 1.3) }
 }

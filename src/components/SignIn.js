@@ -17,7 +17,7 @@ class SignIn extends Component {
               >Log Out
             </button>
           </section>
-            <p className="loggedInUser">Logged in as <strong>{username}</strong></p>
+            <div className="loggedInUser">Logged in as <strong>{username}</strong></div>
         </div>
       );
     } else {
